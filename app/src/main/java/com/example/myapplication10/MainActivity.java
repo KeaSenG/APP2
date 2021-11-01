@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         pendingIntent = PendingIntent.getBroadcast(this,0,intent,0);
 
         alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),
-                AlarmManager.INTERVAL_DAY,pendingIntent;
+                AlarmManager.INTERVAL_DAY,pendingIntent);
 
         Toast.makeText(this,"Alarm set Successfully", Toast.LENGTH_SHORT).show();
 
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                 .setTitleText("Select Alarm time")
                 .build();
 
-        picker.show(getSupportFragmentManager(),"foxandoird";
+        picker.show(getSupportFragmentManager(),"foxandoird");
 
         picker.addOnPositiveButtonClickListener(new View.OnClickListener() {
             @Override
@@ -116,8 +116,8 @@ public class MainActivity extends AppCompatActivity {
                 if (picker.getHour() > 12){
 
                     binding.selecttime.setText(
-                            String.format("%02d",(picker.getHour()-12)+":"+String.format(("%02d",picker.getMinute())+"PM")
-                    );
+                            String.format("%02d",(picker.getHour()-12)+":"+ String.format("%02d",picker.getMinute())+"PM")
+                            );
 
                 }else {
 
@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
 
 
             }
-        })
+        });
 
 
     }
@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void createrNotficationChannel() {
 
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES,0){
+       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             CharSequence name = "foxandroidReminderChanel";
             String descriptoin = "Channel For Alarm Manger";
             int importance = NotificationManager.IMPORTANCE_HIGH;
@@ -151,9 +151,8 @@ public class MainActivity extends AppCompatActivity {
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
 
+       }
 
-
-        }
     }
 
 
